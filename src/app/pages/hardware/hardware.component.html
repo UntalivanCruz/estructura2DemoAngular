@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="listOfHardware">
+    <thead>
+      <tr>
+        <th>Fabricante</th>
+        <th>Modelo</th>
+        <th>Address</th>
+        <th>Service Tag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.fabricante }}</td>
+        <td>{{ data.modelo }}</td>
+        <td>{{ data.serviceTag }}</td>
+        <td>
+          <a>Action 一 {{ data.id }}</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
