@@ -90,23 +90,22 @@ export class HardwareComponent implements OnInit {
         console.error(error);
       })
     }else{
-      console.log(this.form.value)
-      this.hardwareService.putHardware(this.idModificar,this.form.value).toPromise().then((data:any)=>{
+      this.hardwareService.putHardware(this.idModificar,this.form.value).toPromise().then(()=>{
         for(let elemento of this.listOfHardware.filter(x=>x.id===this.idModificar)){
-          elemento.fabricante=data.fabricante;
-          elemento.modelo= data.modelo;
-          elemento.serviceTag= data.serviceTag;
-          elemento.ram= data.ram;
-          elemento.procesadorMarca=data.procesadorMarca;
-          elemento.procesadorGeneracion=data.procesadorGeneracion;
-          elemento.procesadorFq=data.procesadorFq;
-          elemento.cacheL1=data.cacheL1;
-          elemento.cacheL2=data.cacheL2;
-          elemento.cacheL3=data.cacheL3;
-          elemento.discoDuro=data.discoDuro;
-          elemento.discoDuroUnidad=data.discoDuroUnidad;
-          elemento.pantalla=data.pantalla;
-          elemento.color=data.color;
+          elemento.fabricante=this.form.value.fabricante;
+          elemento.modelo= this.form.value.modelo;
+          elemento.serviceTag= this.form.value.serviceTag;
+          elemento.ram= this.form.value.ram;
+          elemento.procesadorMarca=this.form.value.procesadorMarca;
+          elemento.procesadorGeneracion=this.form.value.procesadorGeneracion;
+          elemento.procesadorFq=this.form.value.procesadorFq;
+          elemento.cacheL1=this.form.value.cacheL1;
+          elemento.cacheL2=this.form.value.cacheL2;
+          elemento.cacheL3=this.form.value.cacheL3;
+          elemento.discoDuro=this.form.value.discoDuro;
+          elemento.discoDuroUnidad=this.form.value.discoDuroUnidad;
+          elemento.pantalla=this.form.value.pantalla;
+          elemento.color=this.form.value.color;
         }
         this.visible = false;
         this.nzMessageService.success('El registro fue actualizado con exito!');
